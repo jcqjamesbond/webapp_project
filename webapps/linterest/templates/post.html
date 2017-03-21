@@ -1,0 +1,118 @@
+{% extends 'loggedin_basepage.html' %}
+{% load static %}
+
+{% block title %}
+	<title>Welcome to Post Page</title>
+	{% load static from staticfiles %}
+	<link href="{% static 'css/post.css' %}" rel="stylesheet">
+	<link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+	<link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet">
+    <!-- Bootstrap core CSS -->
+	<link href="{% static 'bootstrap/dist/css/bootstrap.min.css' %}" rel="stylesheet">
+	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+	<link href="{% static 'bootstrap/docs/assets/css/ie10-viewport-bug-workaround.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+    <script src="{% static 'js/jquery-3.1.1.min.js' %}"></script>
+    <script src="{% static 'js/event_post.js' %}"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <!--<link rel="stylesheet" href="/resources/demos/style.css">-->
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <!--<h3 id="demo"></h3>-->
+    <input id = "init_type" type = "hidden" value = {{type}}>
+
+<div class="profile-page">
+    <div class="wrapper">
+        <div class="header header-filter" style="background-image: url('https://static.pexels.com/photos/160322/pexels-photo-160322.jpeg');">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12">
+                        <div class="brand">
+                            <h1>Pair Events</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="main main-raised">
+            <div class="profile-content">
+                <div class="container">
+                    <!--row for search bar-->
+                    <div class = "row">
+                            <input id = "init_type" type = "hidden" value = {{type}}>
+                            <form id="post-form">
+                                <p id="error_place" style="color: red">
+                                    {{form_error}}
+                                </p>
+                                <select id="type_field">
+                                    <option value="meal">Meal</option>
+                                    <option value="drink">Drink</option>
+                                    <option value="movie">Movie</option>
+                                    <option value="party">Party</option>
+                                </select>
+                                <input name="city" value = "{{city}}" class="input" id="city_field" placeholder="City"/>
+                                <input name="start_time" value = {{start_time}} type="datetime-local" class="input" id="start_time_field"/>
+                                <input name="end_time" value = {{end_time}} type="datetime-local" class="input" id="end_time_field"/>
+                                <span id='post-button' class="btn btn-primary">Search</span>
+                                {% csrf_token %}
+                            </form>
+                    </div>
+                    <!--show posts-->
+                    <div class="row">
+                        <div class = "container">
+                            <div id = 'event-list'></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="footer">
+        <div class="container">
+            <nav class="pull-left">
+                <ul>
+                    <li>
+                        <a href="#">
+                            Team 220
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                           About Us
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                           Blog
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            Licenses
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="copyright pull-right">
+                &copy; 2016, made with ❤ by Team220 for a better web.
+            </div>
+        </div>
+    </footer>
+    </div>
+</div>
+
+
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="{% static 'bootstrap/dist/js/bootstrap.min.js' %}"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="{% static 'bootstrap/docs/assets/js/ie10-viewport-bug-workaround.js' %}"></script>
+{% endblock %}

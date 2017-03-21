@@ -1,0 +1,149 @@
+{% extends 'loggedin_basepage.html' %}
+
+{% block title %}
+	<title>Welcome to Profile Page</title>
+	{% load static from staticfiles %}
+	<link href="{% static 'css/profile.css' %}" rel="stylesheet">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+
+{% endblock %}
+
+
+
+{% block content %}
+<script src="{% static 'js/jquery-3.1.1.min.js' %}"></script>
+<script src="{% static 'js/profile.js' %}"></script>
+
+<div class="profile-page" id="root" username={{user}}>
+ 	<div class="wrapper">
+		<div class="header header-filter" style="background-image: url('https://static.pexels.com/photos/160322/pexels-photo-160322.jpeg');"></div>
+
+		<div class="main main-raised">
+			<div class="profile-content">
+	            <div class="container">
+	            	<!--first row-->
+	                <div class="row">
+	                    <div class="profile">
+	                        <div class="avatar">
+								{% if picture %}
+	                            	<img src = "{% url 'photo' user %}" class="img-circle rounded img-raised">
+								{% else %}
+									<img src = "{% static 'images/default_icon.jpg' %}" class="img-circle rounded img-raised">
+								{% endif %}
+	                        </div>
+	                        <div class="name">
+	                            <h3 class="title">{{user.first_name}} {{user.last_name}}</h3>
+								<h6>Gender: {{gender}}&nbsp;&nbsp;Age: {{age}}</h6>
+								<h6>Phone: {{phone}}</h6>
+	                        </div>
+	                        <div class="description text-center">
+                        		<p>{{bio}} </p>
+	                		</div>
+	                    </div>
+	                </div>
+	                <!--profile description-->
+	             <!--    <div class="description text-center">
+                        <p>{{bio}} </p>
+	                </div> -->
+	                <!--list of events two buttons-->
+
+					<div class="row">
+						<!-- <div class="col-md-6 col-md-offset-3"> -->
+							<div class="profile-tabs">
+			                    <div class="nav-align-center">
+									<ul class="nav nav-pills" data-tabs="tabs">
+
+										<li class="active">
+											<a href="#pairs" data-toggle="tab" style="color:#00c6d7;">
+												<i class="material-icons">camera</i>
+												Pair Events
+											</a>
+										</li>
+
+				                        <li>
+				                            <a href="#groups" data-toggle="tab" style="color:#00c6d7;">
+												<i class="material-icons">favorite</i>
+				                                Group Events
+				                            </a>
+				                        </li>
+				                    </ul>
+									<div><br></div>	
+				                      <!--show posts-->
+				               		<div class="tab-content gallery"> 		
+				               			<!--show pair events-->
+									 	<div class="tab-pane active" id="pairs">
+										    <div class='col-md-8 col-md-offset-2'>
+											    <div class="row">
+													<div id='event-list'></div>
+												</div>
+											</div>
+										</div> 
+										<!--show group event-->
+										<div class="tab-pane" id="groups">
+											<div class='col-md-8 col-md-offset-2'>
+											    <div class="row">
+													<div id='group-list'></div>
+												</div>
+											</div>
+										</div>
+				 					</div> 
+			                   
+				                </div>
+				            </div>
+				       <!--  </div> -->
+				    </div>
+				  
+
+
+
+
+
+
+				   
+
+
+
+
+	            </div>
+	        </div>
+	    </div>
+	    <footer class="footer">
+	    <div class="container">
+	        <nav class="pull-left">
+	            <ul>
+					<li>
+						<a href="#">
+							Team 220
+						</a>
+					</li>
+					<li>
+						<a href="#">
+						   About Us
+						</a>
+					</li>
+					<li>
+						<a href="#">
+						   Blog
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							Licenses
+						</a>
+					</li>
+	            </ul>
+	        </nav>
+	        <div class="copyright pull-right">
+	            &copy; 2016, made with ❤ by Team220 for a better web.
+	        </div>
+	    </div>
+	</footer>
+	</div>
+</div>
+
+
+
+
+
+
+{% endblock %}

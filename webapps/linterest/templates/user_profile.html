@@ -1,0 +1,6 @@
+{% load static %}
+{% if profile.picture.name %}
+<img src={% url 'photo' profile.user.username %} class='small_profile_picture2'>
+{% else %}
+<img src={% static 'images/default_icon.jpg' %} class='small_profile_picture2'>
+{% endif %}

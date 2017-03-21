@@ -1,0 +1,1 @@
+{"followers":[{% for follower in followers %}{%spaceless%}{% include 'event_follower.json' %}{%endspaceless%}{% if not forloop.last %}, {% endif %}{% endfor %}], "members":[{% for member in members %}{%spaceless%}{% include 'event_member.json' %}{%endspaceless%}{% if not forloop.last %}, {% endif %}{% endfor %}]}

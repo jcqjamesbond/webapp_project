@@ -1,0 +1,13 @@
+{% load static %}
+<li>
+    <div>
+        {{ profile.user.first_name }} {{ profile.user.last_name }}
+        {% if profile.gender == 'Male' %}
+            &male;
+        {% else %}
+            &female;
+        {% endif %}
+        {{ profile.age }}
+    </div>
+    <div class='btn btn-primary' id='like' onclick=likeBack('{{ profile.user.username }}')>Like</div>
+</li>

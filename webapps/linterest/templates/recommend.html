@@ -1,0 +1,156 @@
+{% extends 'loggedin_basepage.html' %}
+{% load static %}
+
+{% block title %}
+	<title>Welcome to Post Page</title>
+	{% load static from staticfiles %}
+     <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">-->
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'css/recommend.css' %}" rel="stylesheet">
+	<link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+	<link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+
+	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+	<link href="{% static 'bootstrap/docs/assets/css/ie10-viewport-bug-workaround.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+    <script src="{% static 'js/jquery-3.1.1.min.js' %}"></script>
+    <script src="{% static 'js/mapdemo.js' %}"></script>
+    <!--<script src="{% static 'js/chat.js' %}"></script>-->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+<!--     <span id='post-button' class="btn btn-primary btn-block">Search</span> -->
+
+    <!--all the recommended yelp places are listed here-->
+<div class="profile-page">
+    <div class="wrapper">
+        <div class="header header-filter" style="background-image: url('https://static.pexels.com/photos/160322/pexels-photo-160322.jpeg');">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12">
+                        <div class="brand">
+                            <h1>Recommendations</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="main main-raised">
+            <div class="profile-content">
+
+                <!--Chat Box-->
+                <aside id="sidebar_secondary" class="tabbed_sidebar ng-scope chat_sidebar">
+                    <div class="popup-head">
+                        <div class="popup-head-left pull-left">
+                            <img class="md-user-image"  src="{% url 'photo' user.username %}">
+                            <h5>{{user.first_name}} {{user.last_name}}</h5>
+                        </div>
+                        <div class="popup-head-right pull-right">
+                            <!--close button-->
+                            <div data-widget="remove" id="removeClass" class="chat-header-button pull-right" ><img type="button" src="{% static 'images/close.png' %}"></div>
+                        </div>
+                    </div>
+
+                    <div id="chat" class="chat_box_wrapper chat_box_small chat_box_active" style="opacity: 1; display: block; transform: translateX(0px);">
+                        <!--All chat messages are listed here-->
+                        <div class="chat_box touchscroll chat_box_colors_a" id="chat-field" event_id="{{ event_id }}" username="{{ user.username }}" eog="{{ type }}"></div>
+                    </div>
+
+                    <div class="chat_submit_box">
+                        <div class="uk-input-group">
+                            <div class="gurdeep-chat-box">
+                                <input type="text" placeholder="Type a message" id="submit_message" name="submit_message" class="md-input">
+                            </div>
+                            <span class="uk-input-group-addon btn" id="send-button">Send</span>
+                        </div>
+                    </div>
+                </aside> <!--chatbox end-->
+
+                <div class="container">
+                    <input id = "lat-field" type = "hidden" value = {{latitude}}>
+                    <input id = "lng-field" type = "hidden" value = {{longitude}}>
+                    <!--<input id = "businesses" type = "hidden" value = {{businesses}}>-->
+                
+                    <div class = "row" style="margin-top:50px;">
+                        <div class='col-lg8 col-md-8 col-sm-8 blog-main' id = 'business-list'>
+                            <p>{{error_message}}</p>
+                        {% for business in businesses %}
+                            <!--<div class="container">-->
+                            <div class='well' latitude = {{business.location.coordinate.latitude}}
+                                 longitude = {{business.location.coordinate.longitude}} img_src = {{business.image_url}}
+                                 url = {{business.url}} name = {{business.name}}>
+                                <!--<div class="container">-->
+                                    <div class='row'>
+                                        <div class='col-sm-2 img-layout'><!--profile picture-->
+                                            <img src="{{ business.image_url }}" class='business_picture'>
+                                        </div>
+                                        <div class="col-sm-5"><!--user's name, time, and post content-->
+                                            <div class='post_content'><a class="busname" href="{{ business.url }}">{{ business.name }}</a></div>
+                                            <div class="containter rating-row">
+                                                <div class="row">
+                                                    <div class="col-sm-4">
+                                                    <img src="{{ business.rating_img_url_large }}" class="rating_img">
+                                                    </div>
+
+                                                    <div class="col-sm-5" id="reviews">{{ business.review_count }} reviews</div>
+                                                </div>
+                                            </div>
+                                            <div class="category">
+                                            {% for category in business.categories %}
+                                                {% if forloop.last %}
+                                                {{ category.name }}
+                                                {% else %}
+                                                {{ category.name }},
+                                                {% endif %}
+                                            {% endfor %}
+                                            </div>
+                                        </div>
+                                    <!--</div>-->
+
+                                    <div class="col-sm-2" id = 'address-list'>
+                                        {% for address in business.location.display_address %}
+                                        <div class='post_content display' address = {{address}}>{{address}}</div>
+                                        {% endfor %}
+                                        <div class='post_content'>{{ business.display_phone }}</div>
+                                    </div>
+                                </div>
+
+
+                                <div class='row'>
+                                    <div class='col-sm-1'><img src="{{ business.snippet_image_url }}" class="snippet_img"></div>
+                                    <div class="col-sm-10">{{ business.snippet_text }}</div>
+                                </div>
+                                <!--</div>-->
+                            </div>
+                            <!--</div>-->
+                        {% endfor %}
+                        </div>
+                        <div class='col-lg4 col-md-4 col-sm-4' id = "map"></div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--button-->
+      <div class="fixed-action-btn" style="z-index:100">
+        <a class="btn-floating btn-large teal lighten-2 open-btn fixed-action-btn"  id="addClass">
+          <i class="large material-icons">message</i>
+        </a>
+      </div>
+<!--end of button-->
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBa2Qef6wKIAryfuaa2WamfqSQjlEf40bA&callback=initMap">
+    </script>
+
+{% endblock %}

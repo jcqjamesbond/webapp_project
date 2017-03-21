@@ -1,0 +1,1 @@
+{"html":"{{member.select_html|safe}}", "caption_html":"{{member.caption_html|safe}}", "member_caption_html":"{{follower.member_caption_html|safe}}", "username":"{{member}}"}

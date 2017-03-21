@@ -1,0 +1,28 @@
+{% extends 'loggedin_basepage.html' %}
+{% load static %}
+
+{% block title %}
+    <title>Google Map Demo</title>
+    <link href="{% static 'css/map.css' %}" rel="stylesheet">
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+	<link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet">
+    <!-- Bootstrap core CSS -->
+	<link href="{% static 'bootstrap/dist/css/bootstrap.min.css' %}" rel="stylesheet">
+	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+	<link href="{% static 'bootstrap/docs/assets/css/ie10-viewport-bug-workaround.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+    <script src="{% static 'js/jquery-3.1.1.min.js' %}"></script>
+    <script src="{% static 'js/mapdemo.js' %}"></script>
+
+    <h3>Google Map Demo</h3>
+    <div class="container">
+        <div id="map"></div>
+    </div>
+
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBa2Qef6wKIAryfuaa2WamfqSQjlEf40bA&callback=initMap">
+    </script>
+
+{% endblock %}

@@ -1,0 +1,254 @@
+body {
+  background: url(https://static.pexels.com/photos/8374/food-ice-cream.jpg);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+}
+
+
+
+.custom-navbar {
+    background: #4B4B4B;
+    margin-bottom: 0;
+}
+.custom-navbar .navbar-brand  {
+  color: #00c6d7;
+   font: 400 2.5em/125% 'Courgette', Helvetica, Sans-serif;
+}
+.custom-navbar .navbar-brand .navbar-toggle {
+    background: #00c6d7;
+    padding: 4px 6px;
+    font-size: 16px;
+    color: #fff;
+    }
+.custom-navbar .nav li a {
+    color: #ffffff;
+    font: 400 1.5em/125% 'Courgette', Helvetica, Sans-serif;
+    }
+.custom-navbar .nav li a:hover {
+    background: transparent;
+   color: #eeeeee;
+}
+.custom-navbar .nav > li > a:focus {
+  background-color: transparent;
+  color: #ffffff;
+  outline: none;
+}
+.custom-navbar .nav li.active > a {
+      color: #00c6d7;
+    }
+.custom-navbar .navbar-toggle {
+        border: none;
+        padding-top: 10px;
+    }
+.custom-navbar .navbar-toggle .icon-bar {
+        background: #00c6d7;
+        border-color: transparent;
+    }
+@media(min-width:768px){
+.custom-navbar {
+        background: #4B4B4B;
+        padding: 10px;
+        border-bottom: 0;
+        background: 0 0;
+     }
+.custom-navbar.top-nav-collapse {
+        padding: 8px;
+        background: #4B4B4B;
+    }
+}
+
+/* for filter */
+#post-form{
+   /* position: relative;*/ /* Enable absolute positioning for children and pseudo elements */
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 100px;
+    margin-bottom: 50px;
+    width:1000px;
+    cursor: pointer;
+    font-weight: bold;
+padding-bottom: 5px;
+  background-color: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+ /* background: inherit;*/
+  border-radius: 12px;
+}
+
+
+
+#post-form input{
+  padding: 5px 5px;
+  margin:7px;
+}
+
+#post-button{
+/*  padding: 10px 20px;
+  width: 10%;*/
+      padding: 7.5px 50px;
+    margin: 7px;
+  font-size: 1.2rem;
+  font-family: 'Raleway';
+  font-weight: 200;
+/*  display: block;*/
+  color: white;
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+
+select{
+  padding-left: 10px;
+  width: 120px;
+  height: 100%;
+  margin: 10px;
+  -webkit-border-radius:1px;
+  -moz-border-radius:1px;
+  border-radius:1px;
+  background: transparent;
+  color:#888;
+  border:none;
+  outline:none;
+  display: inline-block;
+
+
+}
+
+
+input{
+  -webkit-border-radius:3px;
+  -moz-border-radius:3px;
+  background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+
+}
+
+
+#post-form div{
+  background: transparent;
+  border: 4px #ffffff;
+  border-radius: 0;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  padding: 7px 12px;
+  transition: all 0.4s ease-in-out;
+}
+
+
+#post-form span:hover{
+  background: #00c6d7;
+  border-color: transparent;
+}
+
+
+#like{
+  padding: 10px;
+  background: url(https://abs.twimg.com/a/1446686284/img/t1/web_heart_animation.png);
+  background-position: left;
+  background-repeat: no-repeat;
+  background-size: auto;
+  height: 80px;
+  width: 100px;
+  left: 100px;
+  top: 100px;
+  border: none;
+  margin-left: 50px;
+
+}
+#like:hover {
+  -webkit-animation: play 1s steps(7) ; 
+}
+@-webkit-keyframes play {
+  0% { background-position: 0px 0px; }
+  100% { background-position: -2800px 0px; }
+}
+
+
+
+#username{
+  font-weight: bold;
+  font-size: 20px; 
+}
+#username a{
+  color: black;
+}
+#username a:hover {
+    color: blue;
+}
+
+#time{
+  font-size: 12px;
+}
+
+
+#event{
+  font-weight: bold;
+}
+
+.small_profile_picture {
+    height: 200;
+    object-fit: contain;
+}
+
+img {height:200px;}
+
+img[class] {
+    width: 100%;
+}
+
+.img-layout {
+    float: left;
+    width: 100%;
+    margin: 0 30px 20px 0;
+}
+
+
+
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+}
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.popup {
+  margin: 70px auto;
+  padding: 50px;
+  background: #fff;
+  border-radius: 5px;
+  width: 30%;
+  position: relative;
+  transition: all 5s ease-in-out;
+}
+
+
+.popup .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+.popup .close:hover {
+  color: #06D85F;
+}

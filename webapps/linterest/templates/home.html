@@ -1,0 +1,164 @@
+{% extends 'loggedin_basepage.html' %}
+
+{% block title %}
+	<title>Welcome to Home Page</title>
+	{% load static from staticfiles %}
+	<link href="{% static 'css/home.css' %}" rel="stylesheet">
+	<link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet">
+
+{% endblock %}
+
+{% block content %}
+<script src="{% static 'js/home.js' %}"></script>
+<!--<script src="{% static 'js/event_post.js' %}"></script>-->
+
+<div class="index-page">
+<div class="wrapper" id="home">
+	<div class="header header-filter" style="background-image: url('https://static.pexels.com/photos/160322/pexels-photo-160322.jpeg');">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 col-sm-12">
+					<div class="brand">
+						<h1>Hang Out Tonight?</h1>
+					</div>
+					<div>
+					<hr>
+					<a class="smoothScroll btn btn-danger bu modal-trigger" href="#modal2">Hangout in groups</a>
+                    <a class="smoothScroll btn btn-default bu modal-trigger" href="#modal1">Hangput in pairs</a>
+				</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<div class="main main-raised">
+		<div class="section section-basic">
+	    	<div class="container">
+	         <!--    <div class="title">
+	                <h2>Basic Elements</h2>
+	            </div> -->
+	            <div class="row">
+	                <div class="col-md-6 animate-in">
+	                    <div class="title">
+
+	                        <!--  <img src="http://demo.themeum.com/html/triangle/1.1/images/home/slider/sun.png" class="slider-sun" alt="slider image"> -->
+	                         <h3>Have Fun With Friends</h3>
+	                         <p>Here, you can create your own group and wait for friends to come. And you can also join other people's group and hang out together!Here, you can create your own group and wait for friends to come. And you can also join other people's group and hang out together!Here, you can create your own group and wait for friends to come. And you can also join other people's group and hang out together!Here, you can create your own group and wait for friends to come. And you can also join other people's group and hang out together!Here, you can create your own group and wait for friends to come. And you can also join other people's group and hang out together!Here, you can create your own group and wait for friends to come. Here, you can create your own group and wait for friends to come. And you can also join other people's group and hang out together!Here, you can create your own group and wait for friends to come. And you can also join other people's group and hang out together!Here, you can create your own group and wait for friends to come. </p>
+	                    </div>
+	                 </div>
+	                <div class="col-md-6">
+	                    <div class="title">
+	                        <h3>Enjoy Time With Lover</h3>
+	                        <p>Here, you can create your own group and wait for friends to come. And you can also join other people's group and hang out together!Here, you can create your own group and wait for friends to come. And you can also join other people's group and hang out together!Here, you can create your own group and wait for friends to come. And you can also join other people's group and hang out together!Here, you can create your own group and wait for friends to come. And you can also join other people's group and hang out together!Here, you can create your own group and wait for friends to come. And you can also join other people's group and hang out together!Here, you can create your own group and wait for friends to come. </p>
+	                    </div>
+	                 </div>
+	            </div>
+
+
+
+	        </div>
+	    </div>
+	</div>
+
+	<footer class="footer">
+	    <div class="container">
+	        <nav class="pull-left">
+	            <ul>
+					<li>
+						<a href="#">
+							Team 220
+						</a>
+					</li>
+					<li>
+						<a href="#">
+						   About Us
+						</a>
+					</li>
+					<li>
+						<a href="#">
+						   Blog
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							Licenses
+						</a>
+					</li>
+	            </ul>
+	        </nav>
+	        <div class="copyright pull-right">
+	            &copy; 2016, made with ❤ by Team220 for a better web.
+	        </div>
+	    </div>
+	</footer>
+</div>
+</div>
+
+<div class="container">
+    <!-- Modal Structure -->
+    <!--hang out in pairs-->
+    <div id="modal1" class="modal">
+        <div class="form">
+            <div class="forceColor"></div>
+            <div class="topbar">
+                <div class="spanColor"></div>
+                <form id="post-form">
+		            <p id="error_place" style="color: red;">
+		                {{form_error}}
+		            </p>
+                    <select id="type_field" class="input">
+		                <option value="meal" selected>Meal</option>
+		                <option value="drink">Drink</option>
+		                <option value="movie">Movie</option>
+		                <option value="party">Party</option>
+		            </select>
+		            <input name="city" class="input" id="city_field" placeholder="City"/>
+		            <input name="start_time" type="datetime-local" class="input" id="start_time_field"/>
+		            <input name="end_time" type="datetime-local" class="input" id="end_time_field"/>
+		            <div id="buttons">
+						<div id='post-button' class="submit btn btn-primary">Post Event</div>
+						<div id='search-button' class="submit btn btn-primary">Search Event</div>
+
+					</div>
+					<a  href="#" class="modal-action modal-close">&times;</a>
+					<!-- <a style="position=relative;z-index=100;"class="modal-action modal-close btn-primary">No</a> -->
+		            {% csrf_token %}
+		        </form>
+            </div>
+        </div>
+
+
+
+    </div>
+    <!--hangout in groups-->
+	<div id = "modal2" class = "modal">
+		<div class="form">
+            <div class="forceColor"></div>
+                <div class="topbar">
+                    <div class="spanColor"></div>
+                         <form id="post-form">
+                            <select id="group_type_field" class="input">
+				                <option value="meal" selected>Meal</option>
+				                <option value="drink">Drink</option>
+				                <option value="movie">Movie</option>
+				                <option value="party">Party</option>
+				            </select>
+				            <input name="city" class="input" id="group_city_field" placeholder="City"/>
+				            <input name="start_time" type="datetime-local" class="input" id="group_start_time_field"/>
+				            <input name="end_time" type="datetime-local" class="input" id="group_end_time_field"/>
+				            <div id="buttons">
+								<div id='create-group' class="submit btn btn-primary">Create Group</div>
+								<div id='join-group' class="submit btn btn-primary">Join Group</div>
+							</div>
+							<a  href="#" class="modal-action modal-close">&times;</a>
+							<!-- <a style="position=relative;z-index=100;"class="modal-action modal-close btn-primary">No</a> -->
+				            {% csrf_token %}
+				        </form>
+                </div>
+        </div>
+	</div>
+</div>
+{% endblock %}
+
+

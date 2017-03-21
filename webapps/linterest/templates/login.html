@@ -1,0 +1,43 @@
+{% extends 'login_basepage.html' %}
+
+{% block title %}
+	<title>Welcome to Login Page</title>
+	{% load static from staticfiles %}
+	<link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+{% endblock %}
+
+
+
+{% block content %}
+<div class="container">
+	<div class="info">
+    	<h1><strong>LINTEREST</strong></h1>
+	</div>
+    <div class="form">
+        {% if form.errors %}
+            <p class = "errormessage">
+            Incorrect user name or password!
+            </p>
+        {% endif %}
+	 	<div class="forceColor"></div>
+			<div class="topbar">
+				<!-- <div class="spanColor"></div> -->
+					<form method = "post" action = "{% url 'login' %}">
+						<input name="username" class="input" id="username" placeholder="Username"/ required>
+						<input type = "password" name="password" class="input" id="password" placeholder="Password"/ required>
+			            <button class="submit" id="submit"><strong>Login</strong></button>
+						{% csrf_token %}
+					</form>
+	        </div>
+    </div>
+
+    <div class="text">
+	    <p><strong>Don't have account? <a href = "{% url 'register' %}">Register</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href = "{% url 'forgotpwd' %}">forget password?</a></strong></p>
+    </div>
+</div>
+
+<input type = "hidden" name = "next" value = "{{ next }}">
+
+{% endblock %}
+

@@ -1,0 +1,54 @@
+{% extends 'login_basepage.html' %}
+
+{% block title %}
+	<title>Welcome to Registration Page</title>
+	{% load static from staticfiles %}
+	<link href="{% static 'css/register.css' %}" rel="stylesheet">
+	
+{% endblock %}
+
+
+{% block content %}
+
+<div class="container">
+	<div class="info">
+    	<h1><strong>Register</strong></h1>
+	</div>
+    <div class="form">
+            <div class="forceColor"></div>
+                <div class="topbar">
+                   <!--  <div class="spanColor"></div> -->
+                    <form method = "post" action = "{% url 'register' %}">
+                        {% for field in form.visible_fields %}
+                            {% if field.errors %}
+                                {% for error in field.errors %}
+                                    <p class = "errormessage">{{error}}</p>
+                                {% endfor %}
+                            {% endif %}
+                        {% endfor %}
+
+                        {% if form.non_field_errors %}
+                            {% for error in form.non_field_errors %}
+                                <p class = "errormessage">{{error}}</p>
+                            {% endfor %}
+                        {% endif %}
+                        <input name="username" class="input" id="username" placeholder="Username" required/>
+                        <input name="email"  class="input" id="password" placeholder="Email" required/>
+                        <input name="firstname" class="input" id="firstname" placeholder="Firstname" required/>
+                        <input name="lastname" class="input" id="lastname" placeholder="Lastname" required/>
+                        <input type = "password" name="password1" class="input" id="password1" placeholder="Password" required/>
+                        <input type = "password" name="password2" class="input" id="password2" placeholder="Confirm Password" required/>
+                        <button class="submit" id="submit">Register</button>
+                        {% csrf_token %}
+                    </form>
+                </div>
+        </div>
+    <div class="text">
+            <p><strong>Have an account? <a href = "{% url 'logout' %}">Login</a></strong></p>
+        </div>
+</div>
+
+
+
+
+{% endblock %}

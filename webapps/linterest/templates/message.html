@@ -1,0 +1,12 @@
+<div class='chat_message_wrapper' username={{ user.username }}>
+    <div class='chat_user_avatar'>
+        <a href='https://web.facebook.com/iamgurdeeposahan' target='_blank' >
+        <img src='{% url 'photo' user.username %}' class='md-user-image'>
+        </a>
+    </div>
+    <ul class='chat_message'>
+        <li>
+            <p> {{self.message}}<span class='chat_message_time'>{{self.time}}</span> </p>
+        </li>
+    </ul>
+</div>

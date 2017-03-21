@@ -1,0 +1,23 @@
+{% extends 'login_basepage.html' %}
+
+
+{% block title %}
+	<title> Register</title>
+	{% load static from staticfiles %}
+	<link href="{% static 'css/style.css' %}" rel="stylesheet">
+{% endblock %}
+
+
+{% block content %}
+
+	{% if created %}
+	<div class="container2">
+		<div class="register">
+    	<h2><strong>An email has been sent to you!!! You need to confirm your email!!!</strong></h2>
+		</div>
+	</div>
+	
+	{% endif %}
+
+	
+{% endblock %}

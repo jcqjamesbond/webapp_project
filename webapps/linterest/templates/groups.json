@@ -1,0 +1,1 @@
+{"form_error":"{{form_error}}", "max-time":"{{max_time|date:"c"}}", "groups":[{% for group in groups %}{%spaceless%}{% include 'group.json' %}{%endspaceless%}{% if not forloop.last %}, {% endif %}{% endfor %}]}

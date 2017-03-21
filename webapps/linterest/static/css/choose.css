@@ -1,0 +1,166 @@
+body {
+  background: url(https://static.pexels.com/photos/160322/pexels-photo-160322.jpeg) 50% 50%/cover;
+  position: relative;
+}
+
+
+
+html, body {
+     width: 100%;
+     overflow-x: hidden;
+  }
+
+
+.custom-navbar {
+    background: #4B4B4B;
+    margin-bottom: 0;
+}
+.custom-navbar .navbar-brand  {
+  color: #00c6d7;
+/*  font-weight: 600;
+  font-size: 25px;*/
+  font: 400 2.5em/125% 'Courgette', Helvetica, Sans-serif;
+}
+.custom-navbar .navbar-brand .navbar-toggle {
+    background: #00c6d7;
+    padding: 4px 6px;
+    font-size: 16px;
+    color: #fff;
+    }
+.custom-navbar .nav li a {
+    color: #ffffff;
+/*    font-size: 15px;
+    font-weight: 500;*/
+    font: 400 1.5em/125% 'Courgette', Helvetica, Sans-serif;
+    }
+.custom-navbar .nav li a:hover {
+    background: transparent;
+   color: #eeeeee;
+}
+.custom-navbar .nav > li > a:focus {
+  background-color: transparent;
+  color: #ffffff;
+  outline: none;
+}
+.custom-navbar .nav li.active > a {
+      color: #00c6d7;
+    }
+.custom-navbar .navbar-toggle {
+        border: none;
+        padding-top: 10px;
+    }
+.custom-navbar .navbar-toggle .icon-bar {
+        background: #00c6d7;
+        border-color: transparent;
+    }
+@media(min-width:768px){
+.custom-navbar {
+        background: #4B4B4B;
+        padding: 10px;
+        border-bottom: 0;
+        background: 0 0;
+     }
+.custom-navbar.top-nav-collapse {
+        padding: 8px;
+        background: #4B4B4B;
+    }
+}
+
+
+#home {
+  background-size: cover;
+  background-position: center;
+  color: #ffffff;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+      align-items: center;
+  height: 100vh;
+  text-align: center;
+}
+#home h1 {
+
+  font: 400 5.0em/125% 'Courgette', Helvetica, Sans-serif;
+  color: white;
+}
+
+#home hr {
+  width: 240px;
+  position:center;
+
+}
+#home a{
+
+  font: 400 1.0em/125% 'Courgette', Helvetica, Sans-serif;
+  color: white;
+}
+#home .btn {
+  background: transparent;
+  border: 4px solid #ffffff;
+  border-radius: 0;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  padding: 12px 42px;
+  margin-top: 40px;
+  margin-right: 16px;
+  transition: all 0.4s ease-in-out;
+}
+#home .btn:hover {
+  background: #00c6d7;
+  border-color: transparent;
+}
+#home .btn-danger {
+  background: #00c6d7;
+  border-color: transparent;
+}
+#home .btn-danger:hover {
+  border: 4px solid #ffffff;
+    border-radius: 0;
+  background: transparent;
+    color: #ffffff;
+}
+
+/*.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+}
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.popup {
+  margin: 70px auto;
+  padding: 50px;
+  background: #fff;
+  border-radius: 5px;
+  width: 30%;
+  position: relative;
+  transition: all 5s ease-in-out;
+}
+
+
+.popup .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+.popup .close:hover {
+  color: #06D85F;
+}*/

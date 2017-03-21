@@ -1,0 +1,118 @@
+{% extends 'loggedin_basepage.html' %}
+
+{% block title %}
+    <title>Welcome to Edit Profile Page</title>
+    {% load static from staticfiles %}
+    <link href="{% static 'css/editprofile.css' %}" rel="stylesheet">
+{% endblock %}
+
+
+
+
+{% block content %}
+<div class="profile-page">
+    <div class="wrapper">
+        <div class="header header-filter" style="background-image: url('https://static.pexels.com/photos/160322/pexels-photo-160322.jpeg');"></div>
+
+        <div class="main main-raised">
+            <div class="profile-content">
+                <div class="container">
+                    <div class="row">
+                        <div class="profile">
+                            <div class="avatar">
+                                <img src = "{% url 'photo' user %}" class="img-circle rounded img-raised">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                            <div class="form">
+                                <div class="forceColor"></div>
+                                    <div class="topbar">
+                                        <div class="spanColor"></div>
+                                            <form enctype = 'multipart/form-data' action = "{% url 'edit' request.user %}" method = "post">
+                                                {% for field in form.visible_fields %}
+                                                    {% if field.errors %}
+                                                        {% for error in field.errors %}
+                                                            <p class = "errormessage">{{error}}</p>
+                                                        {% endfor %}
+                                                    {% endif %}
+                                                {% endfor %}
+
+                                                {% if form.non_field_errors %}
+                                                    {% for error in form.non_field_errors %}
+                                                        <p class = "errormessage">{{error}}</p>
+                                                    {% endfor %}
+                                                {% endif %}
+                                                <select name = "gender" class="input">
+                                                    <option value="Male" selected>Male</option>
+                                                    <option value="Female">Female</option>
+                                                </select>
+                                                <input class='input' name="age" id="age" value="{{age}}" placeholder="Age">
+                                                <input class='input' name="phone" id="phone" value="{{phone}}" placeholder="Phone">
+                                                <input class='input' name="bio" id="bio" value="{{bio}}" placeholder="Bio">
+                                                <input class='input' name="picture" id="photo" type = "file" placeholder="Photo">
+                                                <button class = "submit" id="submit" value="post" type="submit">Save</button>
+                                                {% csrf_token %}
+                                            </form>
+                                    </div>
+                            </div>
+                    </div>
+                            <div id="container">
+                                <div class="info">
+                                    <h1><strong>Edit</strong></h1>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer" style="margin-top:-120px;">
+        <div class="container">
+            <nav class="pull-left">
+                <ul>
+                    <li>
+                        <a href="#">
+                            Team 220
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                           About Us
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                           Blog
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            Licenses
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="copyright pull-right">
+                &copy; 2016, made with ❤ by Team220 for a better web.
+            </div>
+        </div>
+    </footer>
+    </div>
+</div>
+
+{% for field in form.visible_fields %}
+    {% if field.errors %}
+        <td>{{ field.errors }}</td>
+    {% endif %}
+{% endfor %}
+
+{% if form.non_field_errors %}
+    {% for error in form.non_field_errors %}
+        {{ error }}
+    {% endfor %}
+{% endif %}
+
+{% endblock %}

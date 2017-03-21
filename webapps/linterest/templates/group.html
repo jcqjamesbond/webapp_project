@@ -1,0 +1,20 @@
+{% load static %}
+<div class='col-lg-4 col-md-4 col-sm-6 blog-main'>
+    <div class='single' id='{{ id }}'>
+        <div class = 'img-layout'><!--profile picture-->
+            {% if profile.picture.name %}
+            <img src={% url 'photo' user.username %} class='small_profile_picture'>
+            {% else %}
+            <img src={% static 'images/default_profile_picture.jpg' %} class='small_profile_picture'>
+            {% endif %}
+        </div>
+        <div >
+            <div class='post_content' id='username'><a href={% url 'profile' user.username %}>{{ user.first_name }} {{ user.last_name }}</a></div>
+            <div class='post_content' id='time'>{{ time }}</div>
+            <span class='post_content' id='event'>{{ type }} at {{ city }} </span>
+            <div class='post_content' id='start_time'><strong>Start:</strong>  {{ start_time }}</div>
+            <div class='post_content' id='end_time'><strong>End:</strong>    {{ end_time }}</div>
+        </div>
+        <div class='btn btn-default' id='like' role='button' onclick='likeGroup({{id}})'>Like</div>
+    </div>
+</div>

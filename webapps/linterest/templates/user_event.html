@@ -1,0 +1,26 @@
+{% load static %}
+<div class='well event-item' id='{{ event_id }}'>
+   
+    <div class = 'col-md-6'>
+
+        {% if profile.picture %}
+        <img src={% url 'photo' profile.user.username %} class='small_profile_picture'>
+        {% else %}
+        <img src={% static 'images/default_icon.jpg' %} class='small_profile_picture'>
+        {% endif %}
+    </div> 
+    <div class='col-md-6'>
+        <div class='post_content' id='username'><a href={% url 'profile' user.username %}>{{ user.first_name }} {{ user.last_name }}</a></div>
+        <div class='post_content' id='time'>{{ time }}</div>
+        <span class='post_content' id='event'>{{ type }}  </span>
+        <span class='post_content' id='city'>at  {{ city }}</span>
+        <div class='post_content' id='start_time'><strong>Start:</strong>  {{ start_time }}</div>
+        <div class='post_content' id='end_time'><strong>End:</strong>    {{ end_time }}</div>
+    </div>  
+    <div class='col-md-12'>
+        <a href='/linterest/event_followers/{{ event_id }}'>
+            <div id='follower-list{{ event_id }}' class='follower-list'></div>
+        </a>
+    </div> 
+</div>
+

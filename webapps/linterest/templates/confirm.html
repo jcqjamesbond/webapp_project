@@ -1,0 +1,17 @@
+{% extends 'login_basepage.html' %}
+
+
+{% block title %}
+	<title> Log In </title>
+	{% load static from staticfiles %}
+	<link href="{% static 'grumblr/login.css' %}" rel="stylesheet">
+{% endblock %}
+
+
+{% block content %}
+
+	{% if experied %}
+	<h2>The confirmation link was experied! Please register again!!</h2>
+	{% endif %}
+	
+{% endblock %}
